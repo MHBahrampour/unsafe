@@ -1,24 +1,24 @@
 {
   "passwords": [
     {
-      "userId": "u1",
-      "id": "p1",
+      "userId": 1,
+      "id": 1,
       "title": "Proton",
       "loginUrl": "proton.me",
       "username": "my-proton",
       "password": "84727418"
     },
     {
-      "userId": "u1",
-      "id": "p2",
+      "userId": 1,
+      "id": 2,
       "title": "Github",
       "loginUrl": "github.com",
       "username": "my-github",
       "password": "61849062"
     },
     {
-      "userId": "u1",
-      "id": "p3",
+      "userId": 1,
+      "id": 3,
       "title": "Spotify",
       "loginUrl": "spotify.com",
       "username": "my-spotify",

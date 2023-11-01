@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-import { Provider } from "react-redux";
-import { store } from "./store";
+import ReduxProvider from "./_providers/ReduxProvider";
 
 export const metadata: Metadata = {
   title: "Tiny Pass",
@@ -15,10 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Provider store={store}>
-      <html lang="en">
-        <body>{children}</body>
-      </html>
-    </Provider>
+    <html lang="en">
+      <body>
+        <ReduxProvider>{children}</ReduxProvider>
+      </body>
+    </html>
   );
 }

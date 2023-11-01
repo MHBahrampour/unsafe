@@ -1,7 +1,9 @@
+import PasswordsList from "./_features/passwords/PasswordsList";
+
 export default function Home() {
   return (
-    <main className="bg-slate-300">
-      <p>hello world!</p>
+    <main>
+      <PasswordsList />
     </main>
   );
 }
