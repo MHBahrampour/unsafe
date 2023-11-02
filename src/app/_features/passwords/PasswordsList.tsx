@@ -1,5 +1,6 @@
 "use client";
 import { useGetPasswords } from "@/app/_hooks/useGetPasswords";
+import PasswordCard from "./PasswordCard";
 
 export default function PasswordsList() {
   const { passwords, passwordsStatus, passwordsError } = useGetPasswords();
@@ -8,11 +9,9 @@ export default function PasswordsList() {
   if (passwordsStatus === "loading") {
     content = <p>Loading...</p>;
   } else if (passwordsStatus === "succeeded") {
-    content = passwords.map((password) => (
-      <article className="px-4 py-2" key={password.id}>
-        <p className="font-bold">{password.title}</p>
-        <p>{password.loginUrl}</p>
-      </article>
+    const sortedPasswords = passwords.slice().sort((a, b) => b.id - a.id);
+    content = sortedPasswords.map((password) => (
+      <PasswordCard password={password} />
     ));
   } else if (passwordsStatus === "failed") {
     content = <p>{passwordsError}</p>;
