@@ -1,6 +1,5 @@
 export interface Passwords {
-  userId: number;
-  id: number;
+  id: string;
   title: string;
   loginUrl: string;
   username: string;

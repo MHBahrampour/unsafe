@@ -1,7 +1,6 @@
 {
   "passwords": [
     {
-      "userId": 1,
       "id": 1,
       "title": "Proton",
       "loginUrl": "proton.me",
@@ -9,7 +8,6 @@
       "password": "84727418"
     },
     {
-      "userId": 1,
       "id": 2,
       "title": "Github",
       "loginUrl": "github.com",
@@ -17,12 +15,18 @@
       "password": "61849062"
     },
     {
-      "userId": 1,
       "id": 3,
       "title": "Spotify",
       "loginUrl": "spotify.com",
       "username": "my-spotify",
       "password": "01937418"
+    },
+    {
+      "id": 4,
+      "title": "1",
+      "loginUrl": "1",
+      "username": "1",
+      "password": "1"
     }
   ]
 }

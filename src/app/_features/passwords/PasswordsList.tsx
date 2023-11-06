@@ -9,9 +9,8 @@ export default function PasswordsList() {
   if (passwordsStatus === "loading") {
     content = <p>Loading...</p>;
   } else if (passwordsStatus === "succeeded") {
-    const sortedPasswords = passwords.slice().sort((a, b) => b.id - a.id);
-    content = sortedPasswords.map((password) => (
-      <PasswordCard password={password} />
+    content = passwords.map((password) => (
+      <PasswordCard key={password.id} password={password} />
     ));
   } else if (passwordsStatus === "failed") {
     content = <p>{passwordsError}</p>;

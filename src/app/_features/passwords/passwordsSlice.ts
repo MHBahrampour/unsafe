@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { InitialPasswordsState } from "@/app/_types/commonTypes";
+import { InitialPasswordsState, Passwords } from "@/app/_types/commonTypes";
 import { RootState } from "@/app/store";
 
 const PASSWORDS_URL = "http://localhost:3500/passwords";
@@ -23,6 +23,14 @@ export const fetchPasswords = createAsyncThunk(
   }
 );
 
+export const addPassword = createAsyncThunk(
+  "posts/addPassword",
+  async (newPassword: Passwords) => {
+    const response = await axios.post(PASSWORDS_URL, newPassword);
+    return response.data;
+  }
+);
+
 const passwordsSlice = createSlice({
   name: "passwords",
   initialState,
@@ -39,7 +47,13 @@ const passwordsSlice = createSlice({
       .addCase(fetchPasswords.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message || null;
-      });
+      })
+      .addCase(
+        addPassword.fulfilled,
+        (state, action: PayloadAction<Passwords>) => {
+          state.data.push(action.payload);
+        }
+      );
   },
 });
 

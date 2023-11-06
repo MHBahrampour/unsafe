@@ -6,7 +6,7 @@ interface PasswordCardProps {
 
 export default function PasswordCard({ password }: PasswordCardProps) {
   return (
-    <article className="px-4 py-2" key={password.id}>
+    <article className="px-4 py-2">
       <p className="font-bold">{password.title}</p>
       <p>{password.loginUrl}</p>
     </article>
