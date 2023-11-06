@@ -1,4 +1,5 @@
 import { Passwords } from "@/app/_types/commonTypes";
+import { Typography } from "@mui/material";
 
 interface PasswordCardProps {
   password: Passwords;
@@ -6,9 +7,11 @@ interface PasswordCardProps {
 
 export default function PasswordCard({ password }: PasswordCardProps) {
   return (
-    <article className="px-4 py-2">
-      <p className="font-bold">{password.title}</p>
-      <p>{password.loginUrl}</p>
+    <article className="">
+      <Typography variant="body1" className="!font-bold">
+        {password.title}
+      </Typography>
+      <Typography variant="body1">{password.loginUrl}</Typography>
     </article>
   );
 }
