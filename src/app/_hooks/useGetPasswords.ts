@@ -2,17 +2,19 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./reduxHooks";
 import {
   fetchPasswords,
-  selectAllPasswords,
+  getAllPasswords,
   getPasswordsStatus,
   getPasswordsError,
+  getSelectedPassword,
 } from "../_features/passwords/passwordsSlice";
 
 export const useGetPasswords = () => {
   const dispatch = useAppDispatch();
 
-  const passwords = useAppSelector(selectAllPasswords);
+  const passwords = useAppSelector(getAllPasswords);
   const passwordsStatus = useAppSelector(getPasswordsStatus);
   const passwordsError = useAppSelector(getPasswordsError);
+  const selectedPassword = useAppSelector(getSelectedPassword);
 
   useEffect(() => {
     if (passwordsStatus === "idle") {
@@ -20,5 +22,5 @@ export const useGetPasswords = () => {
     }
   }, [passwordsStatus, dispatch]);
 
-  return { passwords, passwordsStatus, passwordsError };
+  return { passwords, passwordsStatus, passwordsError, selectedPassword };
 };

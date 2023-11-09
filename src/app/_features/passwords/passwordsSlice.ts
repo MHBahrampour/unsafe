@@ -12,6 +12,7 @@ const initialState: InitialPasswordsState = {
   data: [],
   status: "idle", // "idle", "loading", "succeeded", "failed"
   error: null,
+  selecetedId: null,
 };
 
 export const fetchPasswords = createAsyncThunk(
@@ -31,10 +32,25 @@ export const addPassword = createAsyncThunk(
   }
 );
 
+export const editPassword = createAsyncThunk(
+  "posts/editPassword",
+  async (editedPassword: Passwords) => {
+    const response = await axios.put(
+      `${PASSWORDS_URL}/${editedPassword.id}`,
+      editedPassword
+    );
+    return response.data;
+  }
+);
+
 const passwordsSlice = createSlice({
   name: "passwords",
   initialState,
-  reducers: {},
+  reducers: {
+    updateSelecetedId: (state, action) => {
+      state.selecetedId = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchPasswords.pending, (state, action) => {
@@ -53,14 +69,28 @@ const passwordsSlice = createSlice({
         (state, action: PayloadAction<Passwords>) => {
           state.data.push(action.payload);
         }
+      )
+      .addCase(
+        editPassword.fulfilled,
+        (state, action: PayloadAction<Passwords>) => {
+          const editedPasswordId = action.payload.id;
+          const data = state.data.filter(
+            (password) => password.id !== editedPasswordId
+          );
+          state.data = [...data, action.payload];
+        }
       );
   },
 });
 
-export const selectAllPasswords = (state: RootState) => state.passwords.data;
+export const getAllPasswords = (state: RootState) => state.passwords.data;
 export const getPasswordsStatus = (state: RootState) => state.passwords.status;
 export const getPasswordsError = (state: RootState) => state.passwords.error;
+export const getSelectedPassword = (state: RootState) =>
+  state.passwords.data.find(
+    (password) => password.id === state.passwords.selecetedId
+  );
 
-// export const {} = passwordsSlice.actions;
+export const { updateSelecetedId } = passwordsSlice.actions;
 
 export default passwordsSlice.reducer;

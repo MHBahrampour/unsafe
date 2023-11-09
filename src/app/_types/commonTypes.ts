@@ -1,5 +1,5 @@
 export interface Passwords {
-  id: string;
+  id: number | null;
   title: string;
   loginUrl: string;
   username: string;
@@ -10,4 +10,5 @@ export interface InitialPasswordsState {
   data: Passwords[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: null | string;
+  selecetedId: number | null;
 }

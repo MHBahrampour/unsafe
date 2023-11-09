@@ -1,6 +1,6 @@
 "use client";
 import { useGetPasswords } from "@/app/_hooks/useGetPasswords";
-import PasswordCard from "./PasswordCard";
+import PasswordExcerpt from "./PasswordExcerpt";
 import { Typography } from "@mui/material";
 
 export default function PasswordsList() {
@@ -10,12 +10,15 @@ export default function PasswordsList() {
   if (passwordsStatus === "loading") {
     content = <Typography variant="body1">Loading...</Typography>;
   } else if (passwordsStatus === "succeeded") {
-    content = passwords.map((password) => (
-      <PasswordCard key={password.id} password={password} />
+    const sortedPasswords = passwords
+      .slice()
+      .sort((a, b) => (b.id || 0) - (a.id || 0));
+    content = sortedPasswords.map((password) => (
+      <PasswordExcerpt key={password.id} password={password} />
     ));
   } else if (passwordsStatus === "failed") {
     content = <Typography variant="body1">{passwordsError}</Typography>;
   }
 
-  return <section className="grid gap-4">{content}</section>;
+  return <div className="grid gap-4">{content}</div>;
 }
