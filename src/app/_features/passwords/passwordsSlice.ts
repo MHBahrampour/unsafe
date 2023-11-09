@@ -43,6 +43,21 @@ export const editPassword = createAsyncThunk(
   }
 );
 
+export const deletePassword = createAsyncThunk(
+  "posts/deletePassword",
+  async (deletedPassword: Passwords) => {
+    try {
+      const response = await axios.delete(
+        `${PASSWORDS_URL}/${deletedPassword.id}`
+      );
+      if (response?.status === 200) return deletedPassword;
+      return `${response?.status}: ${response?.statusText}`;
+    } catch (err: any) {
+      return err.message;
+    }
+  }
+);
+
 const passwordsSlice = createSlice({
   name: "passwords",
   initialState,
@@ -79,7 +94,12 @@ const passwordsSlice = createSlice({
           );
           state.data = [...data, action.payload];
         }
-      );
+      )
+      .addCase(deletePassword.fulfilled, (state, action) => {
+        const deletedPasswordId = action.payload.id;
+        const data = state.data.filter((post) => post.id !== deletedPasswordId);
+        state.data = data;
+      });
   },
 });
 

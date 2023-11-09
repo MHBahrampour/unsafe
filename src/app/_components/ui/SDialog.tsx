@@ -14,7 +14,7 @@ interface SDialogProps {
   isOpen: boolean;
   setIsOpen: (value: SetStateAction<boolean>) => void;
   buttonValue: string;
-  buttonDisabled: boolean;
+  buttonDisabled?: boolean;
   buttonFunction: () => void;
   children: ReactNode;
 }
@@ -23,7 +23,7 @@ export default function SDialog({
   isOpen,
   setIsOpen,
   buttonValue,
-  buttonDisabled,
+  buttonDisabled = true,
   buttonFunction,
   children,
 }: SDialogProps) {

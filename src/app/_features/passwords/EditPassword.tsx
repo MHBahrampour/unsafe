@@ -46,7 +46,6 @@ export default function EditPassword({
       ),
     [editedPassword]
   );
-  // console.log(canEditPassword);
 
   const onEditPasswordClicked = () => {
     try {
@@ -54,7 +53,7 @@ export default function EditPassword({
       dispatch(editPassword(editedPassword)).unwrap();
       setEditedPassword(INIT_NEWPASSWORD);
     } catch (err) {
-      console.error("Failed to add new password", err);
+      console.error("Failed to edit the password", err);
     } finally {
       setEditRequestStatus("idle");
     }

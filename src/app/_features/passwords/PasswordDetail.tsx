@@ -4,12 +4,20 @@ import { IconButton, Typography } from "@mui/material";
 import { useState } from "react";
 import { FiTrash2, FiEdit3 } from "react-icons/fi";
 import EditPassword from "./EditPassword";
+import { useAppDispatch } from "@/app/_hooks/reduxHooks";
+import DeletePassword from "./DeletePassword";
 
 export default function PasswordDetail() {
+  const dispatch = useAppDispatch();
+
   const { selectedPassword: password } = useGetPasswords();
 
   const [showEditDialog, setShowEditDialog] = useState(false);
   const toggleEditDialog = () => setShowEditDialog((prevState) => !prevState);
+
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const toggleDeleteDialog = () =>
+    setShowDeleteDialog((prevState) => !prevState);
 
   return (
     password && (
@@ -27,7 +35,10 @@ export default function PasswordDetail() {
               >
                 <FiEdit3 />
               </IconButton>
-              <IconButton className="text-gray-600 text-2xl">
+              <IconButton
+                className="text-gray-600 text-2xl"
+                onClick={toggleDeleteDialog}
+              >
                 <FiTrash2 />
               </IconButton>
             </div>
@@ -47,6 +58,12 @@ export default function PasswordDetail() {
         <EditPassword
           showEditDialog={showEditDialog}
           setShowEditDialog={setShowEditDialog}
+          currentPassword={password}
+        />
+
+        <DeletePassword
+          showDeleteDialog={showDeleteDialog}
+          setShowDeleteDialog={setShowDeleteDialog}
           currentPassword={password}
         />
       </>
