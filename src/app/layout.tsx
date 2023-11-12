@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ReduxProvider from "./_providers/ReduxProvider";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { theme } from "./_theme/theme";
 
 export const metadata: Metadata = {
   title: "Tiny Pass",
@@ -15,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline enableColorScheme />
+          <ReduxProvider>{children}</ReduxProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

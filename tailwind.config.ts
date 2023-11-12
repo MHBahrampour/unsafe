@@ -13,7 +13,14 @@ const config: Config = {
       lg: "1200px",
       xl: "1536px",
     },
-    extend: {},
+    extend: {
+      colors: {
+        common: { black: "#1b202e", white: "#9497a2" },
+        primary: { main: "#407d70", light: "#468d7f", dark: "#3b6d61" },
+        secondary: { main: "#6d3b47", light: "#7e4752", dark: "#5c303d" },
+        background: { paper: "#1b202e", default: "#1b202e" },
+      },
+    },
   },
   corePlugins: {
     preflight: false,
