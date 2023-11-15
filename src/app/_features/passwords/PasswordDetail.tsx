@@ -1,26 +1,18 @@
 "use client";
 import { useGetPasswords } from "@/app/_hooks/useGetPasswords";
 import { Divider, IconButton, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FiTrash2, FiEdit3 } from "react-icons/fi";
 import EditPassword from "./EditPassword";
 import DeletePassword from "./DeletePassword";
 import { BsPerson, BsKey } from "react-icons/bs";
 import { IoEarthOutline } from "react-icons/io5";
-import { Passwords } from "@/app/_types/commonTypes";
 
 export default function PasswordDetail() {
-  const { passwords, selectedPassword } = useGetPasswords();
+  const { selectedPassword } = useGetPasswords();
 
-  const [passwordToShow, setPasswordToShow] = useState<Passwords>();
   const [showEditDialog, setShowEditDialog] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-
-  useEffect(() => {
-    selectedPassword
-      ? setPasswordToShow(selectedPassword)
-      : setPasswordToShow(passwords[passwords.length - 1]);
-  }, [passwords, selectedPassword]);
 
   const toggleEditDialog = () => setShowEditDialog((prevState) => !prevState);
 
@@ -28,13 +20,13 @@ export default function PasswordDetail() {
     setShowDeleteDialog((prevState) => !prevState);
 
   return (
-    passwordToShow && (
+    selectedPassword && (
       <>
         <div className="flex flex-col gap-4 bg-common-semiBlack px-6 rounded-2xl h-full">
           {/* Header */}
           <div className="grid grid-cols-[1fr_auto] items-center h-16">
             <Typography variant="h4" className="font-semibold">
-              {passwordToShow.title}
+              {selectedPassword.title}
             </Typography>
 
             <div className="grid grid-cols-2 gap-2">
@@ -67,7 +59,7 @@ export default function PasswordDetail() {
                     Username
                   </Typography>
                   <Typography variant="body1" className="font-semibold">
-                    {passwordToShow.username}
+                    {selectedPassword.username}
                   </Typography>
                 </div>
               </div>
@@ -85,7 +77,7 @@ export default function PasswordDetail() {
                     Password
                   </Typography>
                   <Typography variant="body1" className="font-semibold">
-                    {passwordToShow.password}
+                    {selectedPassword.password}
                   </Typography>
                 </div>
               </div>
@@ -103,7 +95,7 @@ export default function PasswordDetail() {
                     Login URL
                   </Typography>
                   <Typography variant="body1" className="font-semibold">
-                    {passwordToShow.loginUrl}
+                    {selectedPassword.loginUrl}
                   </Typography>
                 </div>
               </div>
@@ -114,13 +106,13 @@ export default function PasswordDetail() {
         <EditPassword
           showEditDialog={showEditDialog}
           setShowEditDialog={setShowEditDialog}
-          currentPassword={passwordToShow}
+          currentPassword={selectedPassword}
         />
 
         <DeletePassword
           showDeleteDialog={showDeleteDialog}
           setShowDeleteDialog={setShowDeleteDialog}
-          currentPassword={passwordToShow}
+          currentPassword={selectedPassword}
         />
       </>
     )

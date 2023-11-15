@@ -12,7 +12,7 @@ const initialState: InitialPasswordsState = {
   data: [],
   status: "idle", // "idle", "loading", "succeeded", "failed"
   error: null,
-  selecetedId: null,
+  selectedId: null,
 };
 
 export const fetchPasswords = createAsyncThunk(
@@ -58,12 +58,17 @@ export const deletePassword = createAsyncThunk(
   }
 );
 
+const updateSelectedId = (state: InitialPasswordsState) => {
+  const latestPassword = state.data[state.data.length - 1];
+  state.selectedId = latestPassword ? latestPassword.id : null;
+};
+
 const passwordsSlice = createSlice({
   name: "passwords",
   initialState,
   reducers: {
     updateSelecetedId: (state, action) => {
-      state.selecetedId = action.payload;
+      state.selectedId = action.payload;
     },
   },
   extraReducers(builder) {
@@ -74,6 +79,7 @@ const passwordsSlice = createSlice({
       .addCase(fetchPasswords.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.data = action.payload;
+        updateSelectedId(state);
       })
       .addCase(fetchPasswords.rejected, (state, action) => {
         state.status = "failed";
@@ -83,6 +89,7 @@ const passwordsSlice = createSlice({
         addPassword.fulfilled,
         (state, action: PayloadAction<Passwords>) => {
           state.data.push(action.payload);
+          updateSelectedId(state);
         }
       )
       .addCase(
@@ -99,6 +106,7 @@ const passwordsSlice = createSlice({
         const deletedPasswordId = action.payload.id;
         const data = state.data.filter((post) => post.id !== deletedPasswordId);
         state.data = data;
+        updateSelectedId(state);
       });
   },
 });
@@ -108,8 +116,9 @@ export const getPasswordsStatus = (state: RootState) => state.passwords.status;
 export const getPasswordsError = (state: RootState) => state.passwords.error;
 export const getSelectedPassword = (state: RootState) =>
   state.passwords.data.find(
-    (password) => password.id === state.passwords.selecetedId
+    (password) => password.id === state.passwords.selectedId
   );
+export const getSelectedId = (state: RootState) => state.passwords.selectedId;
 
 export const { updateSelecetedId } = passwordsSlice.actions;
 

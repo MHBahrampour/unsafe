@@ -10,5 +10,5 @@ export interface InitialPasswordsState {
   data: Passwords[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: null | string;
-  selecetedId: number | null;
+  selectedId: number | null;
 }

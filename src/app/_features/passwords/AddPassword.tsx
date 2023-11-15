@@ -5,6 +5,7 @@ import { addPassword } from "./passwordsSlice";
 import { Passwords } from "@/app/_types/commonTypes";
 import SDialog from "@/app/_components/ui/SDialog";
 import PasswordForm from "./PasswordForm";
+import { Button } from "@mui/material";
 
 type AddRequestStatus = "idle" | "pending";
 
@@ -50,13 +51,25 @@ export default function AddPassword({
     }
   };
 
+  const ActionButton = (
+    <Button
+      variant="contained"
+      className="justify-self-end py-2"
+      disabled={!canAddPassword}
+      onClick={() => {
+        onAddPasswordClicked();
+        setShowAddDialog(false);
+      }}
+    >
+      Create
+    </Button>
+  );
+
   return (
     <SDialog
       isOpen={showAddDialog}
       setIsOpen={setShowAddDialog}
-      buttonValue="Add password"
-      buttonDisabled={canAddPassword}
-      buttonFunction={onAddPasswordClicked}
+      actionButton={ActionButton}
     >
       <PasswordForm data={newPassword} setData={setNewPassword} />
     </SDialog>
