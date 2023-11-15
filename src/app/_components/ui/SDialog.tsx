@@ -4,7 +4,6 @@ import {
   useMediaQuery,
   useTheme,
   Dialog,
-  Button,
   IconButton,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
@@ -13,18 +12,14 @@ import { MdClose } from "react-icons/md";
 interface SDialogProps {
   isOpen: boolean;
   setIsOpen: (value: SetStateAction<boolean>) => void;
-  buttonValue: string;
-  buttonDisabled?: boolean;
-  buttonFunction: () => void;
+  actionButton: ReactNode;
   children: ReactNode;
 }
 
 export default function SDialog({
   isOpen,
   setIsOpen,
-  buttonValue,
-  buttonDisabled = true,
-  buttonFunction,
+  actionButton,
   children,
 }: SDialogProps) {
   const theme = useTheme();
@@ -32,11 +27,6 @@ export default function SDialog({
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleCloseDialog = () => setIsOpen(false);
-
-  const onActionButtonClicked = async () => {
-    buttonFunction();
-    handleCloseDialog();
-  };
 
   return (
     <Dialog
@@ -56,14 +46,7 @@ export default function SDialog({
           <MdClose className="text-2xl text-common-white" />
         </IconButton>
 
-        <Button
-          disabled={!buttonDisabled}
-          variant="contained"
-          className="justify-self-end py-2"
-          onClick={onActionButtonClicked}
-        >
-          {buttonValue}
-        </Button>
+        {actionButton}
       </div>
 
       {/* Content */}

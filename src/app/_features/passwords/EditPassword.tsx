@@ -5,6 +5,7 @@ import { Passwords } from "@/app/_types/commonTypes";
 import { useAppDispatch } from "@/app/_hooks/reduxHooks";
 import { editPassword } from "./passwordsSlice";
 import _ from "lodash";
+import { Button } from "@mui/material";
 
 type EditRequestStatus = "idle" | "pending";
 
@@ -59,13 +60,25 @@ export default function EditPassword({
     }
   };
 
+  const ActionButton = (
+    <Button
+      variant="contained"
+      className="justify-self-end py-2"
+      disabled={!canEditPassword}
+      onClick={() => {
+        onEditPasswordClicked();
+        setShowEditDialog(false);
+      }}
+    >
+      Update
+    </Button>
+  );
+
   return (
     <SDialog
       isOpen={showEditDialog}
       setIsOpen={setShowEditDialog}
-      buttonValue="Save"
-      buttonDisabled={canEditPassword}
-      buttonFunction={onEditPasswordClicked}
+      actionButton={ActionButton}
     >
       <PasswordForm data={editedPassword} setData={setEditedPassword} />
     </SDialog>
