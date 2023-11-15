@@ -4,10 +4,10 @@ import ActionMenu from "./_components/ActionMenu";
 
 export default function Home() {
   return (
-    <main className="">
-      <div className="grid grid-cols-[1fr_1.5fr] gap-6 max-w-4xl mx-auto">
+    <main className="p-4 h-screen">
+      <div className="grid grid-cols-[1fr_1.5fr] h-full gap-4  mx-auto max-w-5xl">
         {/* Right column */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <ActionMenu />
           <PasswordsList />
         </div>

@@ -4,6 +4,7 @@ import { SetStateAction, useState } from "react";
 import { deletePassword } from "./passwordsSlice";
 import { useAppDispatch } from "@/app/_hooks/reduxHooks";
 import { Typography } from "@mui/material";
+import { IoAlert } from "react-icons/io5";
 
 type DeleteRequestStatus = "idle" | "pending";
 
@@ -42,8 +43,13 @@ export default function DeletePassword({
       buttonFunction={onDeletePasswordClicked}
     >
       <Typography variant="body1">
-        Are you sure you want to delete this password? This action is
-        irreversible and will permanently remove the stored password.
+        Are you sure you want to{" "}
+        <span className="text-secondary-light">delete</span> this password? This
+        action is{" "}
+        <span className="text-secondary-light">
+          irreversible and will permanently
+        </span>{" "}
+        remove the stored password.
       </Typography>
     </SDialog>
   );

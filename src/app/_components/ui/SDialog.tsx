@@ -8,7 +8,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
-import { FaCircleXmark } from "react-icons/fa6";
+import { MdClose } from "react-icons/md";
 
 interface SDialogProps {
   isOpen: boolean;
@@ -45,22 +45,21 @@ export default function SDialog({
       scroll="paper"
       fullScreen={fullScreen}
       TransitionComponent={Transition}
-      className="sm:[&_.MuiDialog-paper]:rounded-2xl sm:[&_.MuiDialog-paper]:w-[480px] [&_.MuiDialogContent-root]:p-6 [&_.MuiDialog-paper]:p-6"
+      className="sm:[&_.MuiDialog-paper]:rounded-2xl sm:[&_.MuiDialog-paper]:w-[480px] [&_.MuiDialogContent-root]:p-6 [&_.MuiDialog-paper]:p-6 [&_.MuiDialog-paper]:bg-none"
     >
       {/* Header */}
       <div className="grid grid-cols-2 items-center mb-6">
         <IconButton
-          edge="start"
-          className="justify-self-start"
           onClick={handleCloseDialog}
+          className="justify-self-start rounded-2xl bg-common-semiBlack"
         >
-          <FaCircleXmark className="text-3xl text-gray-600" />
+          <MdClose className="text-2xl text-common-white" />
         </IconButton>
 
         <Button
           disabled={!buttonDisabled}
           variant="contained"
-          className="justify-self-end"
+          className="justify-self-end py-2"
           onClick={onActionButtonClicked}
         >
           {buttonValue}

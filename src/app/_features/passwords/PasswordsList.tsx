@@ -20,5 +20,7 @@ export default function PasswordsList() {
     content = <Typography variant="body1">{passwordsError}</Typography>;
   }
 
-  return <div className="grid gap-4">{content}</div>;
+  return (
+    <div className="max-h-[calc(100dvh-104px)] overflow-scroll">{content}</div>
+  );
 }

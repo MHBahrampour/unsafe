@@ -17,7 +17,7 @@ export default function PasswordForm({ data, setData }: PasswordFormProps) {
   };
 
   return (
-    <form className="grid gap-2 text-common-black">
+    <form className="grid gap-4 text-common-black">
       <TextField
         label="Title"
         id="title"
