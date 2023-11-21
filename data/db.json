@@ -3,72 +3,72 @@
     {
       "id": 1,
       "title": "Proton",
-      "loginUrl": "proton.me",
+      "loginUrl": "http://mail.protonmail.com/",
       "username": "abc@protonmail.com",
       "password": "84727418"
     },
     {
       "id": 2,
       "title": "Github",
-      "loginUrl": "github.com",
+      "loginUrl": "https://github.com/login",
       "username": "abc@gmail.com",
       "password": "61849062"
     },
     {
       "id": 3,
       "title": "Spotify",
-      "loginUrl": "spotify.com",
+      "loginUrl": "https://accounts.spotify.com/",
       "username": "abc@yahoo.com",
       "password": "01937418"
     },
     {
       "id": 4,
-      "title": "Password 4",
-      "loginUrl": "Password 4",
-      "username": "Password 4",
-      "password": "Password 4"
+      "title": "Skype",
+      "loginUrl": "https://login.live.com",
+      "username": "abc@protonmail.com",
+      "password": "78240431"
     },
     {
       "id": 5,
-      "title": "Password 5",
-      "loginUrl": "Password 5",
-      "username": "Password 5",
-      "password": "Password 5"
+      "title": "Twitter",
+      "loginUrl": "https://twitter.com/",
+      "username": "abc@gmail.com",
+      "password": "97520914"
     },
     {
       "id": 6,
-      "title": "Password 6",
-      "loginUrl": "Password 6",
-      "username": "Password 6",
-      "password": "Password 6"
+      "title": "Coolors",
+      "loginUrl": "https://coolors.co/",
+      "username": "abc@gmail.com",
+      "password": "14762517"
     },
     {
       "id": 7,
-      "title": "Password 7",
-      "loginUrl": "Password 7",
-      "username": "Password 7",
-      "password": "Password 7"
+      "title": "Deepstash",
+      "loginUrl": "https://deepstash.com/",
+      "username": "abc@yahoo.com",
+      "password": "00976431"
     },
     {
       "id": 8,
-      "title": "1",
-      "loginUrl": "1",
-      "username": "1",
-      "password": "1"
+      "title": "CodePen",
+      "loginUrl": "https://codepen.io/accounts/",
+      "username": "abc@gmail.com",
+      "password": "18361835"
     },
     {
       "id": 9,
-      "title": "2",
-      "loginUrl": "2",
-      "username": "2",
-      "password": "2"
+      "title": "Figma",
+      "loginUrl": "https://www.figma.com/",
+      "username": "abc@protonmail.com",
+      "password": "08746123"
     },
     {
       "id": 10,
-      "title": "3",
-      "loginUrl": "3",
-      "username": "3",
-      "password": "3"
+      "title": "LinkedIn",
+      "loginUrl": "http://www.linkedin.com/",
+      "username": "abc@protonmail.com",
+      "password": "12987465"
     }
   ]
 }
