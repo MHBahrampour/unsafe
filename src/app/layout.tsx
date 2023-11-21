@@ -5,7 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./_theme/theme";
 
 export const metadata: Metadata = {
-  title: "Unsafe Pass",
+  title: "Unsafe",
   description: "A really unsafe password manager",
 };
 
