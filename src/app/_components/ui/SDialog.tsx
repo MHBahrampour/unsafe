@@ -12,7 +12,7 @@ import { MdClose } from "react-icons/md";
 interface SDialogProps {
   isOpen: boolean;
   setIsOpen: (value: SetStateAction<boolean>) => void;
-  actionButton: ReactNode;
+  actionButton?: ReactNode;
   children: ReactNode;
 }
 

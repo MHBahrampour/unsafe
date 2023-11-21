@@ -24,7 +24,7 @@ export default function PasswordDetail() {
       <>
         <div className="flex flex-col gap-4 bg-common-semiBlack px-6 rounded-2xl h-full">
           {/* Header */}
-          <div className="grid grid-cols-[1fr_auto] items-center h-16">
+          <div className="grid grid-cols-[1fr_auto] items-center min-h-[64px]">
             <Typography variant="h4" className="font-semibold">
               {selectedPassword.title}
             </Typography>

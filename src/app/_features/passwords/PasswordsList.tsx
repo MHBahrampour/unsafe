@@ -21,6 +21,8 @@ export default function PasswordsList() {
   }
 
   return (
-    <div className="max-h-[calc(100dvh-104px)] overflow-scroll">{content}</div>
+    <div className="sm:max-h-[calc(100dvh-104px)] sm:overflow-scroll">
+      {content}
+    </div>
   );
 }

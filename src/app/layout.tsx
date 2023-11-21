@@ -5,8 +5,8 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./_theme/theme";
 
 export const metadata: Metadata = {
-  title: "Tiny Pass",
-  description: "A simple password manager",
+  title: "Unsafe Pass",
+  description: "A really unsafe password manager",
 };
 
 export default function RootLayout({
