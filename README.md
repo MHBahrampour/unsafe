@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img alt="Logo" src="https://raw.githubusercontent.com/mhbahrampour/unsafe/main/src/app/favicon.ico" width="100" />
+</div>
 
-## Getting Started
+<h1 align="center">
+  Unsafe Password Manager
+</h1>
 
-First, run the development server:
+<p align="center">
+  This is a really unsafe password manager written purely as an exercise with the Redux Toolkit and NextJS 14.
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![demo](https://github.com/MHBahrampour/unsafe/assets/58956484/59f63df1-6235-41a0-a72b-ccfe5aa93fc6)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Installation & Set Up
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```sh
+   nvm install
+   ```
 
-## Learn More
+2. Install dependencies
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+   npm i
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install and run json-server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```sh
+   npm i -g json-server
+   json-server --watch data/db.json --port 3500
+   ```
+   
+4. Start the development server
 
-## Deploy on Vercel
+   ```sh
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[MIT](https://choosealicense.com/licenses/mit/)
